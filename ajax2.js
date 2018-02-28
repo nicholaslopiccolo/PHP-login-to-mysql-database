@@ -22,7 +22,12 @@ function post(usr, pwd) {
 
             if (xhr.status >= 200 && xhr.status < 300) {
 
-                document.getElementById('div').innerHTML = xhr.responseText;
+                if (xhr.responseText === 'utente non registrato') {
+                    document.getElementById('error').innerHTML = xhr.responseText;
+                }
+                else {
+                    window.location.href = 'success.html';
+                }
             }
         }
     };
